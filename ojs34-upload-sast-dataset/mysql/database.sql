@@ -1,0 +1,536 @@
+-- OJS 3.4.0-7 realistic instance seed (data-only).
+-- dataset_id: ojs34-realistic-instance-v1
+-- Generated 2026-06-21T15:59:47Z. Benign content only; no executable uploads.
+--
+-- SCOPE: data-only seed. Apply on top of a FRESH OJS 3.4.0-7 schema
+--        (default site row) created by the OJS installer. It does NOT
+--        create tables and does NOT modify OJS source. This seed DOES
+--        insert the default submission-file genres for the journal,
+--        because inserting the journal row directly (instead of via the
+--        OJS UI) does not auto-create them. See README.md.
+--
+-- 3.4 schema notes vs 3.3: short locale codes (en), JSON array settings,
+--   journals.current_issue_id (no issues.current), submissions.status +
+--   varchar submission_progress, publications.date_published is DATE.
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS=0;
+START TRANSACTION;
+
+-- journals
+INSERT INTO `journals` (`journal_id`, `path`, `seq`, `primary_locale`, `enabled`, `current_issue_id`) VALUES (1, 'jist', 1, 'en', 1, 5);
+
+-- journal_settings
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'name', 'Journal of Information Systems and Technology');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'acronym', 'JIST');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'abbreviation', 'JIST');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'description', 'A peer-reviewed journal publishing original research on information systems, software engineering, and applied data technology. (Synthetic instance for non-production use.)');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'onlineIssn', '2789-1432');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'publisherInstitution', 'Institute for Applied Computing Research');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'contactEmail', 'editor@jist.example');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'contactName', 'Elena Markovic');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'supportEmail', 'editor@jist.example');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'supportName', 'Elena Markovic');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'supportedLocales', '["en"]');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'supportedFormLocales', '["en"]');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'supportedSubmissionLocales', '["en"]');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'enableOai', '1');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'itemsPerPage', '25');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'numPageLinks', '10');
+INSERT INTO `journal_settings` (`journal_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'publishingMode', '0');
+
+-- genres
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (1, 1, 0, 1, 1, 0, 0, 1, 'SUBMISSION');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (2, 1, 1, 1, 3, 0, 1, 0, 'RESEARCHINSTRUMENT');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (3, 1, 2, 1, 3, 0, 1, 0, 'RESEARCHMATERIALS');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (4, 1, 3, 1, 3, 0, 1, 0, 'RESEARCHRESULTS');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (5, 1, 4, 1, 3, 0, 1, 0, 'TRANSCRIPTS');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (6, 1, 5, 1, 3, 0, 1, 0, 'DATAANALYSIS');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (7, 1, 6, 1, 3, 0, 1, 0, 'DATASET');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (8, 1, 7, 1, 3, 0, 1, 0, 'SOURCETEXTS');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (9, 1, 8, 1, 1, 1, 1, 0, 'MULTIMEDIA');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (10, 1, 9, 1, 2, 1, 0, 0, 'IMAGE');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (11, 1, 10, 1, 1, 1, 0, 0, 'STYLE');
+INSERT INTO `genres` (`genre_id`, `context_id`, `seq`, `enabled`, `category`, `dependent`, `supplementary`, `required`, `entry_key`) VALUES (12, 1, 11, 1, 3, 0, 1, 0, 'OTHER');
+
+-- issues
+INSERT INTO `issues` (`issue_id`, `journal_id`, `volume`, `number`, `year`, `published`, `date_published`, `access_status`, `show_volume`, `show_number`, `show_year`, `show_title`) VALUES (1, 1, 1, '1', 2023, 1, '2023-03-15 09:00:00', 1, 1, 1, 1, 1);
+INSERT INTO `issues` (`issue_id`, `journal_id`, `volume`, `number`, `year`, `published`, `date_published`, `access_status`, `show_volume`, `show_number`, `show_year`, `show_title`) VALUES (2, 1, 1, '2', 2023, 1, '2023-09-15 09:00:00', 1, 1, 1, 1, 1);
+INSERT INTO `issues` (`issue_id`, `journal_id`, `volume`, `number`, `year`, `published`, `date_published`, `access_status`, `show_volume`, `show_number`, `show_year`, `show_title`) VALUES (3, 1, 2, '1', 2024, 1, '2024-03-15 09:00:00', 1, 1, 1, 1, 1);
+INSERT INTO `issues` (`issue_id`, `journal_id`, `volume`, `number`, `year`, `published`, `date_published`, `access_status`, `show_volume`, `show_number`, `show_year`, `show_title`) VALUES (4, 1, 2, '2', 2024, 1, '2024-09-15 09:00:00', 1, 1, 1, 1, 1);
+INSERT INTO `issues` (`issue_id`, `journal_id`, `volume`, `number`, `year`, `published`, `date_published`, `access_status`, `show_volume`, `show_number`, `show_year`, `show_title`) VALUES (5, 1, 3, '1', 2025, 1, '2025-03-15 09:00:00', 1, 1, 1, 1, 1);
+
+-- issue_settings
+INSERT INTO `issue_settings` (`issue_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'title', 'Inaugural Issue');
+INSERT INTO `issue_settings` (`issue_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'title', 'Data Engineering and Practice');
+INSERT INTO `issue_settings` (`issue_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'title', 'Systems Reliability');
+INSERT INTO `issue_settings` (`issue_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'title', 'Human Factors in Computing');
+INSERT INTO `issue_settings` (`issue_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'title', 'Current Issue: Applied Machine Learning');
+
+-- sections
+INSERT INTO `sections` (`section_id`, `journal_id`, `seq`, `editor_restricted`, `meta_indexed`, `meta_reviewed`, `abstracts_not_required`, `hide_title`, `hide_author`, `is_inactive`) VALUES (1, 1, 1, 0, 1, 1, 0, 0, 0, 0);
+INSERT INTO `sections` (`section_id`, `journal_id`, `seq`, `editor_restricted`, `meta_indexed`, `meta_reviewed`, `abstracts_not_required`, `hide_title`, `hide_author`, `is_inactive`) VALUES (2, 1, 2, 0, 1, 1, 0, 0, 0, 0);
+INSERT INTO `sections` (`section_id`, `journal_id`, `seq`, `editor_restricted`, `meta_indexed`, `meta_reviewed`, `abstracts_not_required`, `hide_title`, `hide_author`, `is_inactive`) VALUES (3, 1, 3, 0, 1, 1, 0, 0, 0, 0);
+INSERT INTO `sections` (`section_id`, `journal_id`, `seq`, `editor_restricted`, `meta_indexed`, `meta_reviewed`, `abstracts_not_required`, `hide_title`, `hide_author`, `is_inactive`) VALUES (4, 1, 4, 0, 1, 1, 0, 0, 0, 0);
+INSERT INTO `sections` (`section_id`, `journal_id`, `seq`, `editor_restricted`, `meta_indexed`, `meta_reviewed`, `abstracts_not_required`, `hide_title`, `hide_author`, `is_inactive`) VALUES (5, 1, 5, 0, 1, 1, 0, 0, 0, 0);
+
+-- section_settings
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'title', 'Articles');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'abbrev', 'ART');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'title', 'Review Articles');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'abbrev', 'REV');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'title', 'Case Studies');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'abbrev', 'CASE');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'title', 'Short Communications');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'abbrev', 'SC');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'title', 'Editorials');
+INSERT INTO `section_settings` (`section_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'abbrev', 'ED');
+
+-- users
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (1, 'admin', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'admin@jist.example', '["en"]', '2022-09-01 08:00:00', '2022-09-01 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (2, 'emarkovic', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'emarkovic@jist.example', '["en"]', '2022-09-02 08:00:00', '2022-09-02 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (3, 'jchen', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'jchen@jist.example', '["en"]', '2022-09-05 08:00:00', '2022-09-05 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (4, 'mokoye', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'mokoye@jist.example', '["en"]', '2022-09-10 08:00:00', '2022-09-10 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (5, 'lsantos', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'lsantos@jist.example', '["en"]', '2022-09-12 08:00:00', '2022-09-12 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (6, 'rkumar', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'rkumar@example.org', '["en"]', '2022-10-01 08:00:00', '2022-10-01 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (7, 'snakamura', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'snakamura@example.org', '["en"]', '2022-10-03 08:00:00', '2022-10-03 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (8, 'afischer', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'afischer@example.org', '["en"]', '2022-10-08 08:00:00', '2022-10-08 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (9, 'mgarcia', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'mgarcia@example.org', '["en"]', '2023-01-15 08:00:00', '2023-01-15 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (10, 'okvist', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'okvist@example.org', '["en"]', '2023-02-20 08:00:00', '2023-02-20 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (11, 'ttran', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'ttran@example.org', '["en"]', '2023-04-11 08:00:00', '2023-04-11 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (12, 'pdubois', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'pdubois@example.org', '["en"]', '2022-11-01 08:00:00', '2022-11-01 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (13, 'hkim', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'hkim@example.org', '["en"]', '2022-11-05 08:00:00', '2022-11-05 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (14, 'abrown', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'abrown@example.org', '["en"]', '2022-11-09 08:00:00', '2022-11-09 08:00:00', 0, 0, 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `locales`, `date_registered`, `date_last_login`, `must_change_password`, `disabled`, `inline_help`) VALUES (15, 'jdoe', '$2y$12$1zPw3JbA9EriWabw.LvW8O5qD/x02F7T0XcVQ/GeaRIWIQ1rkwxXm', 'jdoe@example.org', '["en"]', '2023-06-01 08:00:00', '2023-06-01 08:00:00', 0, 0, 1);
+
+-- user_settings
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'givenName', 'Aisha');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'familyName', 'Rahman');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'affiliation', 'JIST Editorial Office');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'country', 'ID');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'givenName', 'Elena');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'familyName', 'Markovic');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'affiliation', 'University of Ljubljana');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'country', 'SI');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'givenName', 'Jian');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'familyName', 'Chen');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'affiliation', 'National University of Singapore');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'country', 'SG');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'givenName', 'Maryam');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'familyName', 'Okoye');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'affiliation', 'University of Lagos');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'country', 'NG');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'givenName', 'Lucas');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'familyName', 'Santos');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'affiliation', 'University of Sao Paulo');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'country', 'BR');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'givenName', 'Ravi');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'familyName', 'Kumar');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'affiliation', 'Indian Institute of Technology Delhi');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'country', 'IN');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'givenName', 'Sora');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'familyName', 'Nakamura');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'affiliation', 'Kyoto University');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'country', 'JP');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'givenName', 'Anna');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'familyName', 'Fischer');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'affiliation', 'Technical University of Munich');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'country', 'DE');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'givenName', 'Maria');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'familyName', 'Garcia');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'affiliation', 'Polytechnic University of Madrid');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'country', 'ES');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'givenName', 'Olof');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'familyName', 'Kvist');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'affiliation', 'KTH Royal Institute of Technology');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'country', 'SE');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'givenName', 'Thao');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'familyName', 'Tran');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'affiliation', 'Vietnam National University');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'country', 'VN');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'givenName', 'Pierre');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'familyName', 'Dubois');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'affiliation', 'Sorbonne University');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'country', 'FR');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'givenName', 'Hyun');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'familyName', 'Kim');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'affiliation', 'Seoul National University');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'country', 'KR');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'givenName', 'Alice');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'familyName', 'Brown');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'affiliation', 'University of Toronto');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'country', 'CA');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'givenName', 'Jordan');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'familyName', 'Doe');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'affiliation', 'Independent Researcher');
+INSERT INTO `user_settings` (`user_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'country', 'US');
+
+-- user_groups
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (1, 0, 1, 1, 1, 0, 1);
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (2, 1, 16, 1, 1, 0, 1);
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (3, 1, 16, 1, 1, 0, 1);
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (4, 1, 17, 1, 1, 0, 1);
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (5, 1, 65536, 1, 1, 0, 1);
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (6, 1, 4096, 1, 1, 0, 1);
+INSERT INTO `user_groups` (`user_group_id`, `context_id`, `role_id`, `is_default`, `show_title`, `permit_self_registration`, `permit_metadata_edit`) VALUES (7, 1, 1048576, 1, 1, 0, 1);
+
+-- user_group_settings
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'name', 'Site Administrator');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'abbrev', 'ADMIN');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'name', 'Journal Manager');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'abbrev', 'JM');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'name', 'Journal Editor');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'abbrev', 'ED');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'name', 'Section Editor');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'abbrev', 'SECED');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'name', 'Author');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'abbrev', 'AU');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'name', 'Reviewer');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'abbrev', 'REV');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'name', 'Reader');
+INSERT INTO `user_group_settings` (`user_group_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'abbrev', 'READ');
+
+-- user_user_groups
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (1, 1);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (2, 2);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (3, 2);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (3, 3);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (4, 4);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (4, 5);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (5, 6);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (5, 7);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (5, 8);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (5, 9);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (5, 10);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (5, 11);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (6, 12);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (6, 13);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (6, 14);
+INSERT INTO `user_user_groups` (`user_group_id`, `user_id`) VALUES (7, 15);
+
+-- submissions
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (1, 1, 1, '2023-03-15 09:00:00', '2022-11-10 10:30:00', '2023-03-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (2, 1, 2, '2023-03-15 09:00:00', '2022-12-01 14:05:00', '2023-03-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (3, 1, 3, '2023-09-15 09:00:00', '2023-05-20 11:20:00', '2023-09-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (4, 1, 4, '2023-09-15 09:00:00', '2023-06-02 09:45:00', '2023-09-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (5, 1, 5, '2024-03-15 09:00:00', '2023-11-15 16:10:00', '2024-03-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (6, 1, 6, '2024-03-15 09:00:00', '2023-12-05 13:30:00', '2024-03-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (7, 1, 7, '2024-09-15 09:00:00', '2024-05-10 10:00:00', '2024-09-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (8, 1, 8, '2025-03-15 09:00:00', '2024-11-20 12:00:00', '2025-03-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (9, 1, 9, '2025-03-15 09:00:00', '2025-01-10 09:00:00', '2025-03-15 09:00:00', 5, 'en', 3, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (10, 1, 10, '2026-05-20 11:00:00', '2026-04-02 15:40:00', '2026-05-20 11:00:00', 3, 'en', 1, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (11, 1, 11, '2026-06-10 09:30:00', '2026-05-15 10:15:00', '2026-06-10 09:30:00', 3, 'en', 1, '', 0);
+INSERT INTO `submissions` (`submission_id`, `context_id`, `current_publication_id`, `date_last_activity`, `date_submitted`, `last_modified`, `stage_id`, `locale`, `status`, `submission_progress`, `work_type`) VALUES (12, 1, 12, '2026-06-18 14:25:00', '2026-06-10 08:50:00', '2026-06-18 14:25:00', 1, 'en', 1, '', 0);
+
+-- publications
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (1, 0, '2023-03-15', '2023-03-15 09:00:00', 1, 1, 1, 1, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (2, 0, '2023-03-15', '2023-03-15 09:00:00', 3, 1, 2, 2, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (3, 0, '2023-09-15', '2023-09-15 09:00:00', 4, 2, 3, 3, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (4, 0, '2023-09-15', '2023-09-15 09:00:00', 7, 3, 4, 4, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (5, 0, '2024-03-15', '2024-03-15 09:00:00', 9, 1, 5, 5, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (6, 0, '2024-03-15', '2024-03-15 09:00:00', 11, 4, 6, 6, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (7, 0, '2024-09-15', '2024-09-15 09:00:00', 12, 1, 7, 7, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (8, 0, '2025-03-15', '2025-03-15 09:00:00', 14, 1, 8, 8, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (9, 0, '2025-03-15', '2025-03-15 09:00:00', 16, 5, 9, 9, 3, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (10, 0, NULL, '2026-05-20 11:00:00', 17, 1, 10, 10, 1, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (11, 0, NULL, '2026-06-10 09:30:00', 19, 2, 11, 11, 1, NULL, 1);
+INSERT INTO `publications` (`publication_id`, `access_status`, `date_published`, `last_modified`, `primary_contact_id`, `section_id`, `seq`, `submission_id`, `status`, `url_path`, `version`) VALUES (12, 0, NULL, '2026-06-18 14:25:00', 20, 1, 12, 12, 1, NULL, 1);
+
+-- publication_settings
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'title', 'A Reproducible Pipeline for Streaming Log Analytics at Scale');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'abstract', '<p>Operational logs are a primary signal for diagnosing distributed systems, yet pipelines that process them are often ad hoc and hard to reproduce.</p><p>We present a modular pipeline that combines schema-on-read ingestion with incremental aggregation, and evaluate it on three public workloads.</p><p>Results indicate consistent latency under sustained load and a clear path to horizontal scaling.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'issueId', 1);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, '', 'pages', '1-18');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'title', 'Index Selection Under Mixed Read-Write Workloads: An Empirical Study');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'abstract', '<p>Choosing secondary indexes is a classic trade-off between read acceleration and write amplification.</p><p>We benchmark eight index configurations across OLTP and HTAP-style workloads and report when composite indexes stop paying off.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, '', 'issueId', 1);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, '', 'pages', '19-37');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'title', 'A Systematic Review of Feature Stores for Production Machine Learning');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'abstract', '<p>Feature stores promise to bridge experimentation and serving, but the literature is fragmented across vendors and open-source projects.</p><p>We systematically review 64 primary sources, propose a capability taxonomy, and highlight open gaps in lineage and point-in-time correctness.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, '', 'issueId', 2);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, '', 'pages', '39-71');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'title', 'Migrating a Municipal Records System to Event Sourcing: A Case Study');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'abstract', '<p>We report on an eighteen-month migration of a municipal records system from a CRUD architecture to event sourcing.</p><p>The case covers data backfill, auditability requirements, and the organisational change needed to sustain the new model.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, '', 'issueId', 2);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, '', 'pages', '73-88');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'title', 'Tail-Latency Aware Load Balancing for Microservice Meshes');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'abstract', '<p>Mesh sidecars make per-request routing decisions cheap, opening the door to latency-aware policies.</p><p>We propose a balancer that estimates downstream queue depth from recent response times and show reduced p99 latency without throughput loss.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, '', 'issueId', 3);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, '', 'pages', '1-24');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'title', 'A Note on Deterministic Seeding for Reproducible Benchmarks');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'abstract', '<p>Non-deterministic seeding silently undermines benchmark comparability.</p><p>We describe a lightweight convention for seeding and recording entropy sources that makes runs byte-reproducible across machines.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, '', 'issueId', 3);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, '', 'pages', '25-32');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'title', 'Cognitive Load in Code Review: An Eye-Tracking Study');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'abstract', '<p>Code review quality depends on reviewer attention, which is hard to measure directly.</p><p>Using eye-tracking on 28 developers, we relate fixation patterns to defect-detection rates and discuss interface implications for review tools.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, '', 'issueId', 4);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, '', 'pages', '1-29');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'title', 'Calibrated Uncertainty for Tabular Anomaly Detection');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'abstract', '<p>Anomaly detectors often output uncalibrated scores that are hard to threshold operationally.</p><p>We combine isotonic calibration with conformal prediction and show reliable coverage on five tabular datasets without retraining the base model.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, '', 'issueId', 5);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, '', 'pages', '1-26');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'title', 'Editorial: Toward Boringly Reliable Machine Learning Systems');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'abstract', '<p>In this editorial we argue that the next gains in applied machine learning will come less from novel models and more from boringly reliable systems engineering around them.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, '', 'issueId', 5);
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, '', 'pages', 'i-iii');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'title', 'Differentially Private Aggregation for Telemetry Dashboards');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'abstract', '<p>Product telemetry dashboards expose aggregates that can leak information about individual users.</p><p>We study differentially private aggregation under realistic refresh rates and quantify the utility cost of common privacy budgets.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'title', 'A Review of Vector Database Indexes for Approximate Nearest Neighbor Search');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'abstract', '<p>Vector databases have proliferated alongside embedding-based applications.</p><p>This review compares graph-, tree-, and quantization-based indexes on recall, build cost, and memory, and identifies workloads where each family dominates.</p>');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'title', 'Energy-Proportional Scheduling for Batch Analytics (Work in Progress)');
+INSERT INTO `publication_settings` (`publication_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'abstract', '<p>This work-in-progress explores scheduling batch analytics jobs to track time-varying grid carbon intensity while meeting deadlines.</p>');
+
+-- authors
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (1, 'rkumar@example.org', 1, 1, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (2, 'afischer@example.org', 1, 1, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (3, 'snakamura@example.org', 1, 2, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (4, 'afischer@example.org', 1, 3, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (5, 'okvist@example.org', 1, 3, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (6, 'mgarcia@example.org', 1, 3, 3, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (7, 'mgarcia@example.org', 1, 4, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (8, 'pdubois@example.org', 1, 4, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (9, 'okvist@example.org', 1, 5, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (10, 'ttran@example.org', 1, 5, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (11, 'ttran@example.org', 1, 6, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (12, 'rkumar@example.org', 1, 7, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (13, 'hkim@example.org', 1, 7, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (14, 'snakamura@example.org', 1, 8, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (15, 'abrown@example.org', 1, 8, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (16, 'emarkovic@jist.example', 1, 9, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (17, 'afischer@example.org', 1, 10, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (18, 'mgarcia@example.org', 1, 10, 2, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (19, 'mgarcia@example.org', 1, 11, 1, 5);
+INSERT INTO `authors` (`author_id`, `email`, `include_in_browse`, `publication_id`, `seq`, `user_group_id`) VALUES (20, 'okvist@example.org', 1, 12, 1, 5);
+
+-- author_settings
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'givenName', 'Ravi');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'familyName', 'Kumar');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'affiliation', 'Indian Institute of Technology Delhi');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'country', 'IN');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'givenName', 'Anna');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'familyName', 'Fischer');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'affiliation', 'Technical University of Munich');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'country', 'DE');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'givenName', 'Sora');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'familyName', 'Nakamura');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'affiliation', 'Kyoto University');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'country', 'JP');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'givenName', 'Anna');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'familyName', 'Fischer');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'affiliation', 'Technical University of Munich');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'country', 'DE');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'givenName', 'Olof');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'familyName', 'Kvist');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'affiliation', 'KTH Royal Institute of Technology');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'country', 'SE');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'givenName', 'Maria');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'familyName', 'Garcia');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'affiliation', 'Polytechnic University of Madrid');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'country', 'ES');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'givenName', 'Maria');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'familyName', 'Garcia');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'affiliation', 'Polytechnic University of Madrid');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'country', 'ES');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'givenName', 'Pierre');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'familyName', 'Dubois');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'affiliation', 'Sorbonne University');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'country', 'FR');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'givenName', 'Olof');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'familyName', 'Kvist');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'affiliation', 'KTH Royal Institute of Technology');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'country', 'SE');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'givenName', 'Thao');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'familyName', 'Tran');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'affiliation', 'Vietnam National University');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'country', 'VN');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'givenName', 'Thao');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'familyName', 'Tran');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'affiliation', 'Vietnam National University');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'country', 'VN');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'givenName', 'Ravi');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'familyName', 'Kumar');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'affiliation', 'Indian Institute of Technology Delhi');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'country', 'IN');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'givenName', 'Hyun');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'familyName', 'Kim');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'affiliation', 'Seoul National University');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'country', 'KR');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'givenName', 'Sora');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'familyName', 'Nakamura');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'affiliation', 'Kyoto University');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'country', 'JP');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'givenName', 'Alice');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'familyName', 'Brown');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'affiliation', 'University of Toronto');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'country', 'CA');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (16, 'en', 'givenName', 'Elena');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (16, 'en', 'familyName', 'Markovic');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (16, 'en', 'affiliation', 'University of Ljubljana');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (16, 'en', 'country', 'SI');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (17, 'en', 'givenName', 'Anna');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (17, 'en', 'familyName', 'Fischer');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (17, 'en', 'affiliation', 'Technical University of Munich');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (17, 'en', 'country', 'DE');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (18, 'en', 'givenName', 'Maria');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (18, 'en', 'familyName', 'Garcia');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (18, 'en', 'affiliation', 'Polytechnic University of Madrid');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (18, 'en', 'country', 'ES');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (19, 'en', 'givenName', 'Maria');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (19, 'en', 'familyName', 'Garcia');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (19, 'en', 'affiliation', 'Polytechnic University of Madrid');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (19, 'en', 'country', 'ES');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (20, 'en', 'givenName', 'Olof');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (20, 'en', 'familyName', 'Kvist');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (20, 'en', 'affiliation', 'KTH Royal Institute of Technology');
+INSERT INTO `author_settings` (`author_id`, `locale`, `setting_name`, `setting_value`) VALUES (20, 'en', 'country', 'SE');
+
+-- files
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (1, 'journals/1/articles/1/0001-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (2, 'journals/1/articles/1/0002-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (3, 'journals/1/articles/1/0003-figure-1.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (4, 'journals/1/articles/1/0004-figure-2.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (5, 'journals/1/articles/1/0005-supplementary-data.csv', 'text/csv');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (6, 'journals/1/articles/1/0006-cover-letter.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (7, 'journals/1/articles/2/0007-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (8, 'journals/1/articles/2/0008-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (9, 'journals/1/articles/2/0009-dataset.json', 'application/json');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (10, 'journals/1/articles/2/0010-references.bib', 'application/x-bibtex');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (11, 'journals/1/articles/3/0011-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (12, 'journals/1/articles/3/0012-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (13, 'journals/1/articles/3/0013-figure-1.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (14, 'journals/1/articles/3/0014-prisma-flow.csv', 'text/csv');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (15, 'journals/1/articles/4/0015-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (16, 'journals/1/articles/4/0016-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (17, 'journals/1/articles/4/0017-supplementary-table.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (18, 'journals/1/articles/4/0018-ethics-approval.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (19, 'journals/1/articles/5/0019-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (20, 'journals/1/articles/5/0020-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (21, 'journals/1/articles/5/0021-figure-1.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (22, 'journals/1/articles/5/0022-measurements.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (23, 'journals/1/articles/5/0023-readme.txt', 'text/plain');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (24, 'journals/1/articles/6/0024-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (25, 'journals/1/articles/6/0025-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (26, 'journals/1/articles/6/0026-data.csv', 'text/csv');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (27, 'journals/1/articles/7/0027-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (28, 'journals/1/articles/7/0028-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (29, 'journals/1/articles/7/0029-figure-1.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (30, 'journals/1/articles/7/0030-figure-2.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (31, 'journals/1/articles/7/0031-references.ris', 'application/x-research-info-systems');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (32, 'journals/1/articles/8/0032-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (33, 'journals/1/articles/8/0033-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (34, 'journals/1/articles/8/0034-supplementary-data.csv', 'text/csv');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (35, 'journals/1/articles/8/0035-source.tex', 'application/x-tex');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (36, 'journals/1/articles/9/0036-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (37, 'journals/1/articles/9/0037-galley.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (38, 'journals/1/articles/10/0038-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (39, 'journals/1/articles/10/0039-supplementary-data.csv', 'text/csv');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (40, 'journals/1/articles/10/0040-cover-letter.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (41, 'journals/1/articles/11/0041-manuscript.pdf', 'application/pdf');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (42, 'journals/1/articles/11/0042-response-to-reviewers.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (43, 'journals/1/articles/11/0043-figure-1.png', 'image/png');
+INSERT INTO `files` (`file_id`, `path`, `mimetype`) VALUES (44, 'journals/1/articles/12/0044-draft-manuscript.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+
+-- submission_files
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (1, 1, 1, 1, 2, 0, '2022-11-10 10:30:00', '2023-03-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (2, 1, 2, 1, 10, 1, '2022-11-10 10:30:00', '2023-03-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (3, 1, 3, 1, 2, 0, '2022-11-10 10:30:00', '2023-03-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (4, 1, 4, 1, 2, 0, '2022-11-10 10:30:00', '2023-03-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (5, 1, 5, 1, 2, 0, '2022-11-10 10:30:00', '2023-03-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (6, 1, 6, 1, 2, 0, '2022-11-10 10:30:00', '2023-03-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (7, 2, 7, 1, 2, 0, '2022-12-01 14:05:00', '2023-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (8, 2, 8, 1, 10, 1, '2022-12-01 14:05:00', '2023-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (9, 2, 9, 1, 2, 0, '2022-12-01 14:05:00', '2023-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (10, 2, 10, 1, 2, 0, '2022-12-01 14:05:00', '2023-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (11, 3, 11, 1, 2, 0, '2023-05-20 11:20:00', '2023-09-15 09:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (12, 3, 12, 1, 10, 1, '2023-05-20 11:20:00', '2023-09-15 09:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (13, 3, 13, 1, 2, 0, '2023-05-20 11:20:00', '2023-09-15 09:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (14, 3, 14, 1, 2, 0, '2023-05-20 11:20:00', '2023-09-15 09:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (15, 4, 15, 1, 2, 0, '2023-06-02 09:45:00', '2023-09-15 09:00:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (16, 4, 16, 1, 10, 1, '2023-06-02 09:45:00', '2023-09-15 09:00:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (17, 4, 17, 1, 2, 0, '2023-06-02 09:45:00', '2023-09-15 09:00:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (18, 4, 18, 1, 2, 0, '2023-06-02 09:45:00', '2023-09-15 09:00:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (19, 5, 19, 1, 2, 0, '2023-11-15 16:10:00', '2024-03-15 09:00:00', 10, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (20, 5, 20, 1, 10, 1, '2023-11-15 16:10:00', '2024-03-15 09:00:00', 10, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (21, 5, 21, 1, 2, 0, '2023-11-15 16:10:00', '2024-03-15 09:00:00', 10, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (22, 5, 22, 1, 2, 0, '2023-11-15 16:10:00', '2024-03-15 09:00:00', 10, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (23, 5, 23, 1, 2, 0, '2023-11-15 16:10:00', '2024-03-15 09:00:00', 10, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (24, 6, 24, 1, 2, 0, '2023-12-05 13:30:00', '2024-03-15 09:00:00', 11, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (25, 6, 25, 1, 10, 1, '2023-12-05 13:30:00', '2024-03-15 09:00:00', 11, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (26, 6, 26, 1, 2, 0, '2023-12-05 13:30:00', '2024-03-15 09:00:00', 11, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (27, 7, 27, 1, 2, 0, '2024-05-10 10:00:00', '2024-09-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (28, 7, 28, 1, 10, 1, '2024-05-10 10:00:00', '2024-09-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (29, 7, 29, 1, 2, 0, '2024-05-10 10:00:00', '2024-09-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (30, 7, 30, 1, 2, 0, '2024-05-10 10:00:00', '2024-09-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (31, 7, 31, 1, 2, 0, '2024-05-10 10:00:00', '2024-09-15 09:00:00', 6, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (32, 8, 32, 1, 2, 0, '2024-11-20 12:00:00', '2025-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (33, 8, 33, 1, 10, 1, '2024-11-20 12:00:00', '2025-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (34, 8, 34, 1, 2, 0, '2024-11-20 12:00:00', '2025-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (35, 8, 35, 1, 2, 0, '2024-11-20 12:00:00', '2025-03-15 09:00:00', 7, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (36, 9, 36, 1, 2, 0, '2025-01-10 09:00:00', '2025-03-15 09:00:00', 2, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (37, 9, 37, 1, 10, 1, '2025-01-10 09:00:00', '2025-03-15 09:00:00', 2, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (38, 10, 38, 1, 2, 0, '2026-04-02 15:40:00', '2026-05-20 11:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (39, 10, 39, 1, 2, 0, '2026-04-02 15:40:00', '2026-05-20 11:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (40, 10, 40, 1, 2, 0, '2026-04-02 15:40:00', '2026-05-20 11:00:00', 8, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (41, 11, 41, 1, 2, 0, '2026-05-15 10:15:00', '2026-06-10 09:30:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (42, 11, 42, 1, 4, 0, '2026-05-15 10:15:00', '2026-06-10 09:30:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (43, 11, 43, 1, 2, 0, '2026-05-15 10:15:00', '2026-06-10 09:30:00', 9, NULL, NULL);
+INSERT INTO `submission_files` (`submission_file_id`, `submission_id`, `file_id`, `genre_id`, `file_stage`, `viewable`, `created_at`, `updated_at`, `uploader_user_id`, `assoc_type`, `assoc_id`) VALUES (44, 12, 44, 1, 2, 0, '2026-06-10 08:50:00', '2026-06-18 14:25:00', 10, NULL, NULL);
+
+-- submission_file_settings
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (1, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (2, 'en', 'name', 'kumar-2023.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (3, 'en', 'name', 'figure-1-architecture.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (4, 'en', 'name', 'figure-2-latency.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (5, 'en', 'name', 'supplementary-data.csv');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (6, 'en', 'name', 'cover-letter.docx');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (7, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (8, 'en', 'name', 'nakamura-2023.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (9, 'en', 'name', 'benchmark-config.json');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (10, 'en', 'name', 'references.bib');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (11, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (12, 'en', 'name', 'fischer-2023.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (13, 'en', 'name', 'figure-1-taxonomy.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (14, 'en', 'name', 'prisma-screening.csv');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (15, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (16, 'en', 'name', 'garcia-2023.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (17, 'en', 'name', 'migration-timeline.xlsx');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (18, 'en', 'name', 'data-governance-approval.docx');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (19, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (20, 'en', 'name', 'kvist-2024.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (21, 'en', 'name', 'figure-1-topology.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (22, 'en', 'name', 'latency-measurements.xlsx');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (23, 'en', 'name', 'supplement-readme.txt');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (24, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (25, 'en', 'name', 'tran-2024.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (26, 'en', 'name', 'seed-variance.csv');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (27, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (28, 'en', 'name', 'kumar-2024.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (29, 'en', 'name', 'figure-1-heatmap.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (30, 'en', 'name', 'figure-2-scanpath.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (31, 'en', 'name', 'references.ris');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (32, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (33, 'en', 'name', 'nakamura-2025.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (34, 'en', 'name', 'coverage-results.csv');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (35, 'en', 'name', 'manuscript-source.tex');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (36, 'en', 'name', 'editorial.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (37, 'en', 'name', 'markovic-editorial-2025.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (38, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (39, 'en', 'name', 'utility-vs-epsilon.csv');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (40, 'en', 'name', 'cover-letter.docx');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (41, 'en', 'name', 'manuscript.pdf');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (42, 'en', 'name', 'response-to-reviewers.docx');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (43, 'en', 'name', 'figure-1-recall-vs-memory.png');
+INSERT INTO `submission_file_settings` (`submission_file_id`, `locale`, `setting_name`, `setting_value`) VALUES (44, 'en', 'name', 'draft-manuscript.docx');
+
+-- publication_galleys
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (1, 1, 'en', 'PDF', 0, 1, 2, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (2, 2, 'en', 'PDF', 0, 1, 8, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (3, 3, 'en', 'PDF', 0, 1, 12, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (4, 4, 'en', 'PDF', 0, 1, 16, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (5, 5, 'en', 'PDF', 0, 1, 20, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (6, 6, 'en', 'PDF', 0, 1, 25, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (7, 7, 'en', 'PDF', 0, 1, 28, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (8, 8, 'en', 'PDF', 0, 1, 33, NULL);
+INSERT INTO `publication_galleys` (`galley_id`, `publication_id`, `locale`, `label`, `seq`, `is_approved`, `submission_file_id`, `url_path`) VALUES (9, 9, 'en', 'PDF', 0, 1, 37, NULL);
+
+COMMIT;
+SET FOREIGN_KEY_CHECKS=1;

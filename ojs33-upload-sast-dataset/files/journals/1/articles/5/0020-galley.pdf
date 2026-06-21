@@ -1,0 +1,64 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1388 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(Tail-Latency Aware Load Balancing for Microservice Meshes) Tj
+T* () Tj
+T* (Authors: Olof Kvist; Thao Tran) Tj
+T* (Affiliations: KTH Royal Institute of Technology / Vietnam National University) Tj
+T* (Correspondence: okvist@example.org) Tj
+T* (Document: Typeset galley \(published version\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (Mesh sidecars make per-request routing decisions cheap, opening the door to latency-aware) Tj
+T* (policies.) Tj
+T* (We propose a balancer that estimates downstream queue depth from recent response times and) Tj
+T* (show reduced p99 latency without throughput loss.) Tj
+T* () Tj
+T* (Keywords: microservices, load balancing, tail latency, service mesh) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Kvist, O. \(2024\). Working notes. KTH Royal Institute of Technology.) Tj
+T* ([2] Tran, T. \(2024\). Working notes. Vietnam National University.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001681 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1751
+%%EOF

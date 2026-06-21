@@ -1,0 +1,6 @@
+{
+  "profile": "clean",
+  "expected_positive_objects": 0,
+  "expected_alert_oracle_ids": [],
+  "note": "Negative corpus; measures false positives."
+}

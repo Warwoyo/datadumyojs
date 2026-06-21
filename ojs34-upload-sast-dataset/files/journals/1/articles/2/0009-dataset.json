@@ -1,0 +1,7 @@
+{
+  "engine": "postgresql-15",
+  "scale_factor": 100,
+  "workloads": ["tpcc", "tpch", "mixed"],
+  "warmup_seconds": 120,
+  "measure_seconds": 600
+}

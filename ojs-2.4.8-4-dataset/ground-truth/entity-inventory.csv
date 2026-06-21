@@ -1,0 +1,14 @@
+entity_type,logical_id,db_id,parent_id,status,description
+journal,J-001,1,,active,Journal of Dummy Information Systems
+section,S-001,1,1,active,Artikel
+section,S-002,2,1,active,Tinjauan
+issue,I-001,1,1,published,Inaugural Published Issue
+issue,I-002,2,1,future,Future Issue
+article,A-001,1,1,queued,A Reproducible Pipeline for Dummy Information Systems
+article,A-002,2,1,queued,Peer Review Dynamics in Synthetic Journals
+article,A-003,3,1,queued,Editorial Decision Modelling: A Review
+article,A-004,4,1,queued,Copyediting Workflows for Lab Datasets
+article,A-005,5,1,queued,Layout and Typesetting of Dummy Manuscripts
+article,A-006,6,1,published,A Published Study on Upload Directory Structure
+article,A-007,7,1,queued,Supplementary Data Handling in OJS 2.4
+article,A-008,8,1,queued,Revision Tracking Across Multiple File Versions

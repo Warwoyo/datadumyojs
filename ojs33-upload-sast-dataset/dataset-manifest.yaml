@@ -1,0 +1,45 @@
+dataset_id: ojs33-realistic-instance-v2
+ojs_version: 3.3.0-13
+database_engine: mysql
+module: normal_instance_seed
+
+journal:
+  journal_id: 1
+  path: jist
+  name: Journal of Information Systems and Technology
+
+# A realistic, normally-operating OJS instance. Every uploaded file is a benign,
+# non-empty, real-looking document. There are NO executable uploads
+# (.php/.phtml/.phar/...), no web shells, and no compromise markers.
+content_summary:
+  submissions: 12          # 9 published, 2 under review, 1 draft
+  uploaded_files: 44       # multiple files per submission
+  issues: 5                # all published; issue 5 is current
+  sections: 5              # Articles, Review Articles, Case Studies, Short Communications, Editorials
+  users: 15                # admin, editors, section editors, authors, reviewers, reader
+  public_galleys: 9        # one PDF galley per published submission
+  upload_extensions: [pdf, docx, xlsx, csv, json, png, bib, ris, tex, txt]
+
+profiles:
+  full-instance:
+    description: Every submission and file (published + under review + draft).
+  core-published:
+    description: Published submissions and their files only (the live catalogue).
+
+# Per-file detail (relative_path, file_id, submission_file_id, sha256, sizes,
+# genres, stages, galley flags) lives in oracle/upload-ground-truth.v1.json and
+# oracle/scenario-matrix.v1.csv. Do not hand-maintain a copy here.
+
+security:
+  executable_uploads_present: false
+  compromise_markers_present: false
+  expected_web_access: false
+  files_dir_must_be_outside_app_dir: true
+# AUTO-GENERATED integrity block. Do not edit by hand; rebuild instead.
+integrity:
+  oracle_sha256: 8dfccf2a564567b304f6b5eebf1894aec5b753b731980db29625e4a3d3d8f337
+  database_sql_sha256: bf1ea8f1b8902326e8a849d8960fb3c2ffdac17e5686350cfdf8838b4e138d44
+  files_tree_sha256: 3b045bb86220eeb82f2abc195ae4119186320aa08cedfe5a02253aa1590c8e44
+build:
+  created_at_utc: 2026-06-21T12:46:41Z
+  builder_version: generate.py-2.0

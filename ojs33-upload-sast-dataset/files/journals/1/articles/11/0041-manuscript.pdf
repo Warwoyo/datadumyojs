@@ -1,0 +1,62 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1253 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(A Review of Vector Database Indexes for Approximate Nearest Neighbor Search) Tj
+T* () Tj
+T* (Authors: Maria Garcia) Tj
+T* (Affiliations: Polytechnic University of Madrid) Tj
+T* (Correspondence: mgarcia@example.org) Tj
+T* (Document: Author manuscript \(under review\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (Vector databases have proliferated alongside embedding-based applications.) Tj
+T* (This review compares graph-, tree-, and quantization-based indexes on recall, build cost,) Tj
+T* (and memory, and identifies workloads where each family dominates.) Tj
+T* () Tj
+T* (Keywords: vector database, ANN, indexing, review) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Garcia, M. \(2026\). Working notes. Polytechnic University of Madrid.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001546 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1616
+%%EOF

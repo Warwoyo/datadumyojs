@@ -1,0 +1,66 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1580 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(A Reproducible Pipeline for Streaming Log Analytics at Scale) Tj
+T* () Tj
+T* (Authors: Ravi Kumar; Anna Fischer) Tj
+T* (Affiliations: Indian Institute of Technology Delhi / Technical University of Munich) Tj
+T* (Correspondence: rkumar@example.org) Tj
+T* (Document: Author manuscript \(as submitted\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (Operational logs are a primary signal for diagnosing distributed systems, yet pipelines that) Tj
+T* (process them are often ad hoc and hard to reproduce.) Tj
+T* (We present a modular pipeline that combines schema-on-read ingestion with incremental) Tj
+T* (aggregation, and evaluate it on three public workloads.) Tj
+T* (Results indicate consistent latency under sustained load and a clear path to horizontal) Tj
+T* (scaling.) Tj
+T* () Tj
+T* (Keywords: stream processing, observability, reproducibility, distributed systems) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Kumar, R. \(2023\). Working notes. Indian Institute of Technology Delhi.) Tj
+T* ([2] Fischer, A. \(2023\). Working notes. Technical University of Munich.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001873 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1943
+%%EOF

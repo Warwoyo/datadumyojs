@@ -1,0 +1,6 @@
+dataset,target_coverage,empirical_coverage,avg_width
+credit,0.90,0.903,0.118
+kdd,0.90,0.897,0.054
+covertype,0.90,0.901,0.231
+thyroid,0.90,0.905,0.087
+shuttle,0.90,0.899,0.042

@@ -1,0 +1,65 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1579 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(A Systematic Review of Feature Stores for Production Machine Learning) Tj
+T* () Tj
+T* (Authors: Anna Fischer; Olof Kvist; Maria Garcia) Tj
+T* (Affiliations: KTH Royal Institute of Technology / Polytechnic University of Madrid / Technical University of Munich) Tj
+T* (Correspondence: afischer@example.org) Tj
+T* (Document: Author manuscript \(as submitted\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (Feature stores promise to bridge experimentation and serving, but the literature is) Tj
+T* (fragmented across vendors and open-source projects.) Tj
+T* (We systematically review 64 primary sources, propose a capability taxonomy, and highlight) Tj
+T* (open gaps in lineage and point-in-time correctness.) Tj
+T* () Tj
+T* (Keywords: feature store, MLOps, systematic review, data management) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Fischer, A. \(2023\). Working notes. Technical University of Munich.) Tj
+T* ([2] Kvist, O. \(2023\). Working notes. KTH Royal Institute of Technology.) Tj
+T* ([3] Garcia, M. \(2023\). Working notes. Polytechnic University of Madrid.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001872 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1942
+%%EOF

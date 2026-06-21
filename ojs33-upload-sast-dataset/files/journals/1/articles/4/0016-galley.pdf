@@ -1,0 +1,64 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1388 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(Migrating a Municipal Records System to Event Sourcing: A Case Study) Tj
+T* () Tj
+T* (Authors: Maria Garcia; Pierre Dubois) Tj
+T* (Affiliations: Polytechnic University of Madrid / Sorbonne University) Tj
+T* (Correspondence: mgarcia@example.org) Tj
+T* (Document: Typeset galley \(published version\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (We report on an eighteen-month migration of a municipal records system from a CRUD) Tj
+T* (architecture to event sourcing.) Tj
+T* (The case covers data backfill, auditability requirements, and the organisational change) Tj
+T* (needed to sustain the new model.) Tj
+T* () Tj
+T* (Keywords: event sourcing, legacy migration, case study, public sector) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Garcia, M. \(2023\). Working notes. Polytechnic University of Madrid.) Tj
+T* ([2] Dubois, P. \(2023\). Working notes. Sorbonne University.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001681 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1751
+%%EOF

@@ -1,0 +1,4 @@
+workload,events_per_sec,p50_ms,p99_ms
+wiki,12000,4.1,21.7
+web,38000,3.4,18.9
+iot,91000,2.8,15.2

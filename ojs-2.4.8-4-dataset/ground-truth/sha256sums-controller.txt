@@ -1,0 +1,3 @@
+5982d86f190ecec468355fda92488a9545e96ade5a2376483d5a9aab6d5befb8  journals/1/articles/3/submission/editor/php-coding-guidelines.txt
+08e11cffe89686e366a15e3317ede053d11d461361bc7fd23435fe3a28824c46  journals/1/articles/5/submission/layout/figure-final.pdf
+4d2681c0bdc891bd4659f9f88262d961346af6dc4fa5b8b02cf95e9eae6806b9  journals/1/articles/7/supp/measurements-2.csv

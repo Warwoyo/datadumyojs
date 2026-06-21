@@ -1,0 +1,2 @@
+Controller artifact
+Filename contains the token 'php' but extension is .txt; must NOT alert.

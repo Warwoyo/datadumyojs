@@ -1,0 +1,63 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1347 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(Calibrated Uncertainty for Tabular Anomaly Detection) Tj
+T* () Tj
+T* (Authors: Sora Nakamura; Alice Brown) Tj
+T* (Affiliations: Kyoto University / University of Toronto) Tj
+T* (Correspondence: snakamura@example.org) Tj
+T* (Document: Typeset galley \(published version\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (Anomaly detectors often output uncalibrated scores that are hard to threshold operationally.) Tj
+T* (We combine isotonic calibration with conformal prediction and show reliable coverage on five) Tj
+T* (tabular datasets without retraining the base model.) Tj
+T* () Tj
+T* (Keywords: anomaly detection, calibration, conformal prediction, tabular data) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Nakamura, S. \(2025\). Working notes. Kyoto University.) Tj
+T* ([2] Brown, A. \(2025\). Working notes. University of Toronto.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001640 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1710
+%%EOF

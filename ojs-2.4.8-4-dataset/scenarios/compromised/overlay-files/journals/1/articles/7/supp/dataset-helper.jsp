@@ -1,0 +1,5 @@
+OJS-2.4.8-4-SAST-LAB-INERT-ARTIFACT:OR-103
+Orphan .jsp (no DB metadata) in supplementary dir; inert.
+This file is INERT: plain text only. No code, no server-side tags,
+no executable instructions. It exists so a scanner can be evaluated
+on NAME / EXTENSION / LOCATION signals at an OJS upload path.

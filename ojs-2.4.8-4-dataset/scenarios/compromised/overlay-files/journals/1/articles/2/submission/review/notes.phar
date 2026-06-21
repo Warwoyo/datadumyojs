@@ -1,0 +1,5 @@
+OJS-2.4.8-4-SAST-LAB-INERT-ARTIFACT:OR-104
+PHP archive extension (.phar) in review dir; inert, not DB-linked.
+This file is INERT: plain text only. No code, no server-side tags,
+no executable instructions. It exists so a scanner can be evaluated
+on NAME / EXTENSION / LOCATION signals at an OJS upload path.

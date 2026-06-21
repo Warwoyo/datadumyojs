@@ -1,0 +1,8 @@
+profile: compromised
+base_profile: baseline
+expected_positive_objects: 4
+overlay_root: overlay-files
+safety:
+  executable_content: false
+  web_root_placement: false
+  runtime_execution: prohibited

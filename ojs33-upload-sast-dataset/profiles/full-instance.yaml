@@ -1,0 +1,14 @@
+profile: full-instance
+description: >
+  The complete realistic OJS instance: every submission and every uploaded
+  file (published, under review, and draft). Use this to seed a target that
+  should look like a journal running normally, with rich content across
+  several issues, sections, and submissions.
+selection: all
+includes:
+  - published submissions (in issues, with public PDF galleys)
+  - submissions under review (no issue, no galley)
+  - draft submissions (incomplete, author stage)
+notes: >
+  apply-profile.sh always copies the full files/ tree; the profile name selects
+  which subset verify-profile.sh checks. full-instance checks everything.

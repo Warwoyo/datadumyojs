@@ -1,0 +1,19 @@
+{
+  "profile": "compromised",
+  "expected_positive_objects": 4,
+  "expected_alert_oracle_ids": [
+    "OR-101",
+    "OR-102",
+    "OR-103",
+    "OR-104"
+  ],
+  "expected_rule_families": [
+    "dangerous_extension"
+  ],
+  "must_not_alert_oracle_ids": [
+    "OR-201",
+    "OR-202",
+    "OR-203"
+  ],
+  "note": "Positives are inert; detection must rest on name/extension/location."
+}

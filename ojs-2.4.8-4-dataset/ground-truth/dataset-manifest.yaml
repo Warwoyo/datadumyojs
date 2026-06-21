@@ -1,0 +1,38 @@
+dataset:
+  id: ojs-2.4.8-4-upload-lab-v1
+  application: ojs
+  application_version: "2.4.8-4"
+  database_engine: mysql
+  build_profile: baseline
+  created_at: "2026-06-21T16:14:24Z"
+
+runtime_contract:
+  files_dir_relative_root: mysql/files
+  public_files_dir_relative_root: mysql/public
+  source_code_included: false
+  source_code_mutation_allowed: false
+
+journal:
+  journal_id: 1
+  path: jdis
+  title: Journal of Dummy Information Systems
+
+integrity:
+  hash_algorithm: sha256
+  file_inventory: ground-truth/file-inventory.csv
+  hash_manifest: ground-truth/sha256sums.txt
+  database_sql_sha256: 75b198101b38ec6c87487826c20fcbdf9fc8b6070fdb47eb9ced2c4855b9b959
+
+profiles:
+  clean:
+    base: baseline
+    overlay: scenarios/clean/overlay-files
+    expected_positive_objects: 0
+  controller:
+    base: baseline
+    overlay: scenarios/controller/overlay-files
+    expected_positive_objects: 0
+  compromised:
+    base: baseline
+    overlay: scenarios/compromised/overlay-files
+    expected_positive_objects: 4

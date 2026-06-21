@@ -1,0 +1,339 @@
+{
+  "_comment": "Single source of truth for a realistic, normally-operating OJS 3.3.0-13 instance seed. The generator (scripts/lib/generate.py) renders benign uploaded files, computes SHA-256 hashes, and emits files/, oracle/, mysql/database.sql, and dataset-manifest.yaml integrity values from this file. All uploads are benign, non-empty, real-looking documents; there are NO executable uploads and NO compromise markers. Do not hand-edit hashes; rebuild instead.",
+  "dataset_id": "ojs33-realistic-instance-v2",
+  "ojs_version": "3.3.0-13",
+  "module": "normal_instance_seed",
+  "journal": {
+    "journal_id": 1,
+    "path": "jist",
+    "name": "Journal of Information Systems and Technology",
+    "acronym": "JIST",
+    "online_issn": "2789-1432",
+    "publisher": "Institute for Applied Computing Research",
+    "description": "A peer-reviewed journal publishing original research on information systems, software engineering, and applied data technology. (Synthetic instance for non-production use.)",
+    "contact_email": "editor@jist.example",
+    "contact_name": "Elena Markovic",
+    "primary_locale": "en_US"
+  },
+  "issues": [
+    { "issue_id": 1, "volume": 1, "number": "1", "year": 2023, "published": 1, "current": 0, "date_published": "2023-03-15 09:00:00", "title": "Inaugural Issue" },
+    { "issue_id": 2, "volume": 1, "number": "2", "year": 2023, "published": 1, "current": 0, "date_published": "2023-09-15 09:00:00", "title": "Data Engineering and Practice" },
+    { "issue_id": 3, "volume": 2, "number": "1", "year": 2024, "published": 1, "current": 0, "date_published": "2024-03-15 09:00:00", "title": "Systems Reliability" },
+    { "issue_id": 4, "volume": 2, "number": "2", "year": 2024, "published": 1, "current": 0, "date_published": "2024-09-15 09:00:00", "title": "Human Factors in Computing" },
+    { "issue_id": 5, "volume": 3, "number": "1", "year": 2025, "published": 1, "current": 1, "date_published": "2025-03-15 09:00:00", "title": "Current Issue: Applied Machine Learning" }
+  ],
+  "sections": [
+    { "section_id": 1, "abbrev": "ART", "title": "Articles" },
+    { "section_id": 2, "abbrev": "REV", "title": "Review Articles" },
+    { "section_id": 3, "abbrev": "CASE", "title": "Case Studies" },
+    { "section_id": 4, "abbrev": "SC", "title": "Short Communications" },
+    { "section_id": 5, "abbrev": "ED", "title": "Editorials" }
+  ],
+  "user_groups": [
+    { "user_group_id": 1, "role_id": 1,       "name": "Site Administrator", "abbrev": "ADMIN" },
+    { "user_group_id": 2, "role_id": 16,      "name": "Journal Manager",    "abbrev": "JM" },
+    { "user_group_id": 3, "role_id": 16,      "name": "Journal Editor",     "abbrev": "ED" },
+    { "user_group_id": 4, "role_id": 17,      "name": "Section Editor",     "abbrev": "SECED" },
+    { "user_group_id": 5, "role_id": 65536,   "name": "Author",             "abbrev": "AU" },
+    { "user_group_id": 6, "role_id": 4096,    "name": "Reviewer",           "abbrev": "REV" },
+    { "user_group_id": 7, "role_id": 1048576, "name": "Reader",             "abbrev": "READ" }
+  ],
+  "users": [
+    { "user_id": 1,  "username": "admin",      "given": "Aisha",    "family": "Rahman",    "affiliation": "JIST Editorial Office",                "country": "ID", "email": "admin@jist.example",      "date_registered": "2022-09-01 08:00:00" },
+    { "user_id": 2,  "username": "emarkovic",  "given": "Elena",    "family": "Markovic",  "affiliation": "University of Ljubljana",              "country": "SI", "email": "emarkovic@jist.example",  "date_registered": "2022-09-02 08:00:00" },
+    { "user_id": 3,  "username": "jchen",      "given": "Jian",     "family": "Chen",      "affiliation": "National University of Singapore",     "country": "SG", "email": "jchen@jist.example",      "date_registered": "2022-09-05 08:00:00" },
+    { "user_id": 4,  "username": "mokoye",     "given": "Maryam",   "family": "Okoye",     "affiliation": "University of Lagos",                  "country": "NG", "email": "mokoye@jist.example",     "date_registered": "2022-09-10 08:00:00" },
+    { "user_id": 5,  "username": "lsantos",    "given": "Lucas",    "family": "Santos",    "affiliation": "University of Sao Paulo",              "country": "BR", "email": "lsantos@jist.example",    "date_registered": "2022-09-12 08:00:00" },
+    { "user_id": 6,  "username": "rkumar",     "given": "Ravi",     "family": "Kumar",     "affiliation": "Indian Institute of Technology Delhi", "country": "IN", "email": "rkumar@example.org",      "date_registered": "2022-10-01 08:00:00" },
+    { "user_id": 7,  "username": "snakamura",  "given": "Sora",     "family": "Nakamura",  "affiliation": "Kyoto University",                     "country": "JP", "email": "snakamura@example.org",   "date_registered": "2022-10-03 08:00:00" },
+    { "user_id": 8,  "username": "afischer",   "given": "Anna",     "family": "Fischer",   "affiliation": "Technical University of Munich",       "country": "DE", "email": "afischer@example.org",    "date_registered": "2022-10-08 08:00:00" },
+    { "user_id": 9,  "username": "mgarcia",    "given": "Maria",    "family": "Garcia",    "affiliation": "Polytechnic University of Madrid",     "country": "ES", "email": "mgarcia@example.org",     "date_registered": "2023-01-15 08:00:00" },
+    { "user_id": 10, "username": "okvist",     "given": "Olof",     "family": "Kvist",     "affiliation": "KTH Royal Institute of Technology",    "country": "SE", "email": "okvist@example.org",      "date_registered": "2023-02-20 08:00:00" },
+    { "user_id": 11, "username": "ttran",      "given": "Thao",     "family": "Tran",      "affiliation": "Vietnam National University",          "country": "VN", "email": "ttran@example.org",       "date_registered": "2023-04-11 08:00:00" },
+    { "user_id": 12, "username": "pdubois",    "given": "Pierre",   "family": "Dubois",    "affiliation": "Sorbonne University",                  "country": "FR", "email": "pdubois@example.org",     "date_registered": "2022-11-01 08:00:00" },
+    { "user_id": 13, "username": "hkim",       "given": "Hyun",     "family": "Kim",       "affiliation": "Seoul National University",            "country": "KR", "email": "hkim@example.org",        "date_registered": "2022-11-05 08:00:00" },
+    { "user_id": 14, "username": "abrown",     "given": "Alice",    "family": "Brown",     "affiliation": "University of Toronto",                "country": "CA", "email": "abrown@example.org",      "date_registered": "2022-11-09 08:00:00" },
+    { "user_id": 15, "username": "jdoe",       "given": "Jordan",   "family": "Doe",       "affiliation": "Independent Researcher",               "country": "US", "email": "jdoe@example.org",        "date_registered": "2023-06-01 08:00:00" }
+  ],
+  "user_group_memberships": [
+    { "user_group_id": 1, "user_id": 1 },
+    { "user_group_id": 2, "user_id": 2 },
+    { "user_group_id": 3, "user_id": 2 },
+    { "user_group_id": 3, "user_id": 3 },
+    { "user_group_id": 4, "user_id": 4 },
+    { "user_group_id": 4, "user_id": 5 },
+    { "user_group_id": 5, "user_id": 6 },
+    { "user_group_id": 5, "user_id": 7 },
+    { "user_group_id": 5, "user_id": 8 },
+    { "user_group_id": 5, "user_id": 9 },
+    { "user_group_id": 5, "user_id": 10 },
+    { "user_group_id": 5, "user_id": 11 },
+    { "user_group_id": 6, "user_id": 12 },
+    { "user_group_id": 6, "user_id": 13 },
+    { "user_group_id": 6, "user_id": 14 },
+    { "user_group_id": 7, "user_id": 15 }
+  ],
+  "submissions": [
+    {
+      "submission_id": 1, "publication_id": 1, "section_id": 1, "issue_id": 1,
+      "status": "published", "year": 2023, "pages": "1-18",
+      "date_submitted": "2022-11-10 10:30:00", "date_published": "2023-03-15 09:00:00", "date_last_activity": "2023-03-15 09:00:00",
+      "submitter_user_id": 6,
+      "title": "A Reproducible Pipeline for Streaming Log Analytics at Scale",
+      "abstract": "Operational logs are a primary signal for diagnosing distributed systems, yet pipelines that process them are often ad hoc and hard to reproduce.\nWe present a modular pipeline that combines schema-on-read ingestion with incremental aggregation, and evaluate it on three public workloads.\nResults indicate consistent latency under sustained load and a clear path to horizontal scaling.",
+      "keywords": ["stream processing", "observability", "reproducibility", "distributed systems"],
+      "authors": [
+        { "given": "Ravi", "family": "Kumar", "affiliation": "Indian Institute of Technology Delhi", "country": "IN", "email": "rkumar@example.org", "seq": 1 },
+        { "given": "Anna", "family": "Fischer", "affiliation": "Technical University of Munich", "country": "DE", "email": "afischer@example.org", "seq": 2 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "kumar-2023.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "figure-1", "ext": ".png", "display_name": "figure-1-architecture.png", "file_stage": 2, "content_kind": "png" },
+        { "physical_basename": "figure-2", "ext": ".png", "display_name": "figure-2-latency.png", "file_stage": 2, "content_kind": "png" },
+        { "physical_basename": "supplementary-data", "ext": ".csv", "display_name": "supplementary-data.csv", "file_stage": 2, "content_kind": "text",
+          "content": "workload,events_per_sec,p50_ms,p99_ms\nwiki,12000,4.1,21.7\nweb,38000,3.4,18.9\niot,91000,2.8,15.2\n" },
+        { "physical_basename": "cover-letter", "ext": ".docx", "display_name": "cover-letter.docx", "file_stage": 2, "content_kind": "docx",
+          "doc_title": "Cover Letter", "paragraphs": [
+            "Dear Editors,",
+            "We submit our manuscript 'A Reproducible Pipeline for Streaming Log Analytics at Scale' for consideration in the Journal of Information Systems and Technology.",
+            "The work is original, has not been published elsewhere, and is not under review at another venue. All authors have approved the submission.",
+            "Sincerely, Ravi Kumar (on behalf of all authors)"
+          ] }
+      ]
+    },
+    {
+      "submission_id": 2, "publication_id": 2, "section_id": 1, "issue_id": 1,
+      "status": "published", "year": 2023, "pages": "19-37",
+      "date_submitted": "2022-12-01 14:05:00", "date_published": "2023-03-15 09:00:00", "date_last_activity": "2023-03-15 09:00:00",
+      "submitter_user_id": 7,
+      "title": "Index Selection Under Mixed Read-Write Workloads: An Empirical Study",
+      "abstract": "Choosing secondary indexes is a classic trade-off between read acceleration and write amplification.\nWe benchmark eight index configurations across OLTP and HTAP-style workloads and report when composite indexes stop paying off.",
+      "keywords": ["databases", "indexing", "benchmarking", "OLTP"],
+      "authors": [
+        { "given": "Sora", "family": "Nakamura", "affiliation": "Kyoto University", "country": "JP", "email": "snakamura@example.org", "seq": 1 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "nakamura-2023.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "dataset", "ext": ".json", "display_name": "benchmark-config.json", "file_stage": 2, "content_kind": "text",
+          "content": "{\n  \"engine\": \"postgresql-15\",\n  \"scale_factor\": 100,\n  \"workloads\": [\"tpcc\", \"tpch\", \"mixed\"],\n  \"warmup_seconds\": 120,\n  \"measure_seconds\": 600\n}\n" },
+        { "physical_basename": "references", "ext": ".bib", "display_name": "references.bib", "file_stage": 2, "content_kind": "text",
+          "content": "@article{nakamura2023index,\n  title   = {Index Selection Under Mixed Read-Write Workloads},\n  author  = {Nakamura, Sora},\n  journal = {Journal of Information Systems and Technology},\n  volume  = {1},\n  number  = {1},\n  pages   = {19--37},\n  year    = {2023}\n}\n" }
+      ]
+    },
+    {
+      "submission_id": 3, "publication_id": 3, "section_id": 2, "issue_id": 2,
+      "status": "published", "year": 2023, "pages": "39-71",
+      "date_submitted": "2023-05-20 11:20:00", "date_published": "2023-09-15 09:00:00", "date_last_activity": "2023-09-15 09:00:00",
+      "submitter_user_id": 8,
+      "title": "A Systematic Review of Feature Stores for Production Machine Learning",
+      "abstract": "Feature stores promise to bridge experimentation and serving, but the literature is fragmented across vendors and open-source projects.\nWe systematically review 64 primary sources, propose a capability taxonomy, and highlight open gaps in lineage and point-in-time correctness.",
+      "keywords": ["feature store", "MLOps", "systematic review", "data management"],
+      "authors": [
+        { "given": "Anna", "family": "Fischer", "affiliation": "Technical University of Munich", "country": "DE", "email": "afischer@example.org", "seq": 1 },
+        { "given": "Olof", "family": "Kvist", "affiliation": "KTH Royal Institute of Technology", "country": "SE", "email": "okvist@example.org", "seq": 2 },
+        { "given": "Maria", "family": "Garcia", "affiliation": "Polytechnic University of Madrid", "country": "ES", "email": "mgarcia@example.org", "seq": 3 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "fischer-2023.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "figure-1", "ext": ".png", "display_name": "figure-1-taxonomy.png", "file_stage": 2, "content_kind": "png" },
+        { "physical_basename": "prisma-flow", "ext": ".csv", "display_name": "prisma-screening.csv", "file_stage": 2, "content_kind": "text",
+          "content": "stage,records\nidentified,1284\nafter_dedup,902\nscreened,902\nfull_text_assessed,180\nincluded,64\n" }
+      ]
+    },
+    {
+      "submission_id": 4, "publication_id": 4, "section_id": 3, "issue_id": 2,
+      "status": "published", "year": 2023, "pages": "73-88",
+      "date_submitted": "2023-06-02 09:45:00", "date_published": "2023-09-15 09:00:00", "date_last_activity": "2023-09-15 09:00:00",
+      "submitter_user_id": 9,
+      "title": "Migrating a Municipal Records System to Event Sourcing: A Case Study",
+      "abstract": "We report on an eighteen-month migration of a municipal records system from a CRUD architecture to event sourcing.\nThe case covers data backfill, auditability requirements, and the organisational change needed to sustain the new model.",
+      "keywords": ["event sourcing", "legacy migration", "case study", "public sector"],
+      "authors": [
+        { "given": "Maria", "family": "Garcia", "affiliation": "Polytechnic University of Madrid", "country": "ES", "email": "mgarcia@example.org", "seq": 1 },
+        { "given": "Pierre", "family": "Dubois", "affiliation": "Sorbonne University", "country": "FR", "email": "pdubois@example.org", "seq": 2 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "garcia-2023.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "supplementary-table", "ext": ".xlsx", "display_name": "migration-timeline.xlsx", "file_stage": 2, "content_kind": "xlsx",
+          "sheet_name": "Timeline", "rows": [["phase", "month", "events_migrated", "downtime_min"], ["discovery", 1, 0, 0], ["backfill", 6, 4200000, 0], ["dual-write", 11, 6100000, 12], ["cutover", 18, 7300000, 35]] },
+        { "physical_basename": "ethics-approval", "ext": ".docx", "display_name": "data-governance-approval.docx", "file_stage": 2, "content_kind": "docx",
+          "doc_title": "Data Governance Approval", "paragraphs": [
+            "This document confirms that the municipal data described in the case study was accessed under a data-sharing agreement and fully anonymised before analysis.",
+            "No personally identifiable information is reproduced in the manuscript or its supplementary materials.",
+            "Reference: DGA-2023-0147."
+          ] }
+      ]
+    },
+    {
+      "submission_id": 5, "publication_id": 5, "section_id": 1, "issue_id": 3,
+      "status": "published", "year": 2024, "pages": "1-24",
+      "date_submitted": "2023-11-15 16:10:00", "date_published": "2024-03-15 09:00:00", "date_last_activity": "2024-03-15 09:00:00",
+      "submitter_user_id": 10,
+      "title": "Tail-Latency Aware Load Balancing for Microservice Meshes",
+      "abstract": "Mesh sidecars make per-request routing decisions cheap, opening the door to latency-aware policies.\nWe propose a balancer that estimates downstream queue depth from recent response times and show reduced p99 latency without throughput loss.",
+      "keywords": ["microservices", "load balancing", "tail latency", "service mesh"],
+      "authors": [
+        { "given": "Olof", "family": "Kvist", "affiliation": "KTH Royal Institute of Technology", "country": "SE", "email": "okvist@example.org", "seq": 1 },
+        { "given": "Thao", "family": "Tran", "affiliation": "Vietnam National University", "country": "VN", "email": "ttran@example.org", "seq": 2 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "kvist-2024.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "figure-1", "ext": ".png", "display_name": "figure-1-topology.png", "file_stage": 2, "content_kind": "png" },
+        { "physical_basename": "measurements", "ext": ".xlsx", "display_name": "latency-measurements.xlsx", "file_stage": 2, "content_kind": "xlsx",
+          "sheet_name": "Runs", "rows": [["policy", "rps", "p50_ms", "p95_ms", "p99_ms"], ["round-robin", 5000, 6.2, 31.0, 88.4], ["least-conn", 5000, 5.8, 27.5, 73.1], ["latency-aware", 5000, 5.9, 22.1, 41.7]] },
+        { "physical_basename": "readme", "ext": ".txt", "display_name": "supplement-readme.txt", "file_stage": 2, "content_kind": "text",
+          "content": "Supplementary materials for 'Tail-Latency Aware Load Balancing for Microservice Meshes'.\n\nContents:\n  figure-1-topology.png   - experimental service topology\n  latency-measurements.xlsx - raw latency runs per policy\n\nReplication: scripts and configs are available on request from the corresponding author.\n" }
+      ]
+    },
+    {
+      "submission_id": 6, "publication_id": 6, "section_id": 4, "issue_id": 3,
+      "status": "published", "year": 2024, "pages": "25-32",
+      "date_submitted": "2023-12-05 13:30:00", "date_published": "2024-03-15 09:00:00", "date_last_activity": "2024-03-15 09:00:00",
+      "submitter_user_id": 11,
+      "title": "A Note on Deterministic Seeding for Reproducible Benchmarks",
+      "abstract": "Non-deterministic seeding silently undermines benchmark comparability.\nWe describe a lightweight convention for seeding and recording entropy sources that makes runs byte-reproducible across machines.",
+      "keywords": ["reproducibility", "benchmarking", "determinism"],
+      "authors": [
+        { "given": "Thao", "family": "Tran", "affiliation": "Vietnam National University", "country": "VN", "email": "ttran@example.org", "seq": 1 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "tran-2024.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "data", "ext": ".csv", "display_name": "seed-variance.csv", "file_stage": 2, "content_kind": "text",
+          "content": "seed,run,result\nfixed-42,1,0.8421\nfixed-42,2,0.8421\nrandom,1,0.8390\nrandom,2,0.8457\n" }
+      ]
+    },
+    {
+      "submission_id": 7, "publication_id": 7, "section_id": 1, "issue_id": 4,
+      "status": "published", "year": 2024, "pages": "1-29",
+      "date_submitted": "2024-05-10 10:00:00", "date_published": "2024-09-15 09:00:00", "date_last_activity": "2024-09-15 09:00:00",
+      "submitter_user_id": 6,
+      "title": "Cognitive Load in Code Review: An Eye-Tracking Study",
+      "abstract": "Code review quality depends on reviewer attention, which is hard to measure directly.\nUsing eye-tracking on 28 developers, we relate fixation patterns to defect-detection rates and discuss interface implications for review tools.",
+      "keywords": ["code review", "human factors", "eye tracking", "software engineering"],
+      "authors": [
+        { "given": "Ravi", "family": "Kumar", "affiliation": "Indian Institute of Technology Delhi", "country": "IN", "email": "rkumar@example.org", "seq": 1 },
+        { "given": "Hyun", "family": "Kim", "affiliation": "Seoul National University", "country": "KR", "email": "hkim@example.org", "seq": 2 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "kumar-2024.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "figure-1", "ext": ".png", "display_name": "figure-1-heatmap.png", "file_stage": 2, "content_kind": "png" },
+        { "physical_basename": "figure-2", "ext": ".png", "display_name": "figure-2-scanpath.png", "file_stage": 2, "content_kind": "png" },
+        { "physical_basename": "references", "ext": ".ris", "display_name": "references.ris", "file_stage": 2, "content_kind": "text",
+          "content": "TY  - JOUR\nTI  - Cognitive Load in Code Review: An Eye-Tracking Study\nAU  - Kumar, Ravi\nAU  - Kim, Hyun\nJO  - Journal of Information Systems and Technology\nVL  - 2\nIS  - 2\nSP  - 1\nEP  - 29\nPY  - 2024\nER  - \n" }
+      ]
+    },
+    {
+      "submission_id": 8, "publication_id": 8, "section_id": 1, "issue_id": 5,
+      "status": "published", "year": 2025, "pages": "1-26",
+      "date_submitted": "2024-11-20 12:00:00", "date_published": "2025-03-15 09:00:00", "date_last_activity": "2025-03-15 09:00:00",
+      "submitter_user_id": 7,
+      "title": "Calibrated Uncertainty for Tabular Anomaly Detection",
+      "abstract": "Anomaly detectors often output uncalibrated scores that are hard to threshold operationally.\nWe combine isotonic calibration with conformal prediction and show reliable coverage on five tabular datasets without retraining the base model.",
+      "keywords": ["anomaly detection", "calibration", "conformal prediction", "tabular data"],
+      "authors": [
+        { "given": "Sora", "family": "Nakamura", "affiliation": "Kyoto University", "country": "JP", "email": "snakamura@example.org", "seq": 1 },
+        { "given": "Alice", "family": "Brown", "affiliation": "University of Toronto", "country": "CA", "email": "abrown@example.org", "seq": 2 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "nakamura-2025.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" },
+        { "physical_basename": "supplementary-data", "ext": ".csv", "display_name": "coverage-results.csv", "file_stage": 2, "content_kind": "text",
+          "content": "dataset,target_coverage,empirical_coverage,avg_width\ncredit,0.90,0.903,0.118\nkdd,0.90,0.897,0.054\ncovertype,0.90,0.901,0.231\nthyroid,0.90,0.905,0.087\nshuttle,0.90,0.899,0.042\n" },
+        { "physical_basename": "source", "ext": ".tex", "display_name": "manuscript-source.tex", "file_stage": 2, "content_kind": "text",
+          "content": "\\documentclass{article}\n\\title{Calibrated Uncertainty for Tabular Anomaly Detection}\n\\author{Sora Nakamura \\and Alice Brown}\n\\begin{document}\n\\maketitle\n\\begin{abstract}\nWe combine isotonic calibration with conformal prediction for reliable coverage on tabular anomaly detection.\n\\end{abstract}\n\\section{Introduction}\nThis is the LaTeX source accompanying the submission.\n\\end{document}\n" }
+      ]
+    },
+    {
+      "submission_id": 9, "publication_id": 9, "section_id": 5, "issue_id": 5,
+      "status": "published", "year": 2025, "pages": "i-iii",
+      "date_submitted": "2025-01-10 09:00:00", "date_published": "2025-03-15 09:00:00", "date_last_activity": "2025-03-15 09:00:00",
+      "submitter_user_id": 2,
+      "title": "Editorial: Toward Boringly Reliable Machine Learning Systems",
+      "abstract": "In this editorial we argue that the next gains in applied machine learning will come less from novel models and more from boringly reliable systems engineering around them.",
+      "keywords": ["editorial", "machine learning", "reliability"],
+      "authors": [
+        { "given": "Elena", "family": "Markovic", "affiliation": "University of Ljubljana", "country": "SI", "email": "emarkovic@jist.example", "seq": 1 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "editorial.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Editorial (as submitted)" },
+        { "physical_basename": "galley", "ext": ".pdf", "display_name": "markovic-editorial-2025.pdf", "file_stage": 10, "is_galley": true, "galley_label": "PDF", "content_kind": "manuscript_pdf", "label": "Typeset galley (published version)" }
+      ]
+    },
+    {
+      "submission_id": 10, "publication_id": 10, "section_id": 1, "issue_id": null,
+      "status": "review", "year": 2026, "pages": null,
+      "date_submitted": "2026-04-02 15:40:00", "date_last_activity": "2026-05-20 11:00:00",
+      "submitter_user_id": 8,
+      "title": "Differentially Private Aggregation for Telemetry Dashboards",
+      "abstract": "Product telemetry dashboards expose aggregates that can leak information about individual users.\nWe study differentially private aggregation under realistic refresh rates and quantify the utility cost of common privacy budgets.",
+      "keywords": ["differential privacy", "telemetry", "analytics"],
+      "authors": [
+        { "given": "Anna", "family": "Fischer", "affiliation": "Technical University of Munich", "country": "DE", "email": "afischer@example.org", "seq": 1 },
+        { "given": "Maria", "family": "Garcia", "affiliation": "Polytechnic University of Madrid", "country": "ES", "email": "mgarcia@example.org", "seq": 2 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (under review)" },
+        { "physical_basename": "supplementary-data", "ext": ".csv", "display_name": "utility-vs-epsilon.csv", "file_stage": 2, "content_kind": "text",
+          "content": "epsilon,relative_error\n0.1,0.214\n0.5,0.061\n1.0,0.029\n2.0,0.014\n" },
+        { "physical_basename": "cover-letter", "ext": ".docx", "display_name": "cover-letter.docx", "file_stage": 2, "content_kind": "docx",
+          "doc_title": "Cover Letter", "paragraphs": [
+            "Dear Editors,",
+            "Please find enclosed our manuscript on differentially private aggregation for telemetry dashboards.",
+            "We believe it fits the journal's scope on applied data technology. The authors declare no competing interests.",
+            "Kind regards, Anna Fischer"
+          ] }
+      ]
+    },
+    {
+      "submission_id": 11, "publication_id": 11, "section_id": 2, "issue_id": null,
+      "status": "review", "year": 2026, "pages": null,
+      "date_submitted": "2026-05-15 10:15:00", "date_last_activity": "2026-06-10 09:30:00",
+      "submitter_user_id": 9,
+      "title": "A Review of Vector Database Indexes for Approximate Nearest Neighbor Search",
+      "abstract": "Vector databases have proliferated alongside embedding-based applications.\nThis review compares graph-, tree-, and quantization-based indexes on recall, build cost, and memory, and identifies workloads where each family dominates.",
+      "keywords": ["vector database", "ANN", "indexing", "review"],
+      "authors": [
+        { "given": "Maria", "family": "Garcia", "affiliation": "Polytechnic University of Madrid", "country": "ES", "email": "mgarcia@example.org", "seq": 1 }
+      ],
+      "files": [
+        { "physical_basename": "manuscript", "ext": ".pdf", "display_name": "manuscript.pdf", "file_stage": 2, "content_kind": "manuscript_pdf", "label": "Author manuscript (under review)" },
+        { "physical_basename": "response-to-reviewers", "ext": ".docx", "display_name": "response-to-reviewers.docx", "file_stage": 4, "content_kind": "docx",
+          "doc_title": "Response to Reviewers", "paragraphs": [
+            "We thank both reviewers for their constructive feedback. Below we address each point in turn.",
+            "Reviewer 1, Comment 1: We have added quantization-based indexes (PQ, OPQ) to the comparison as requested.",
+            "Reviewer 2, Comment 1: The memory-versus-recall figure now reports confidence intervals over five runs.",
+            "All changes are highlighted in the revised manuscript."
+          ] },
+        { "physical_basename": "figure-1", "ext": ".png", "display_name": "figure-1-recall-vs-memory.png", "file_stage": 2, "content_kind": "png" }
+      ]
+    },
+    {
+      "submission_id": 12, "publication_id": 12, "section_id": 1, "issue_id": null,
+      "status": "draft", "year": 2026, "pages": null,
+      "date_submitted": "2026-06-10 08:50:00", "date_last_activity": "2026-06-18 14:25:00",
+      "submitter_user_id": 10,
+      "title": "Energy-Proportional Scheduling for Batch Analytics (Work in Progress)",
+      "abstract": "This work-in-progress explores scheduling batch analytics jobs to track time-varying grid carbon intensity while meeting deadlines.",
+      "keywords": ["scheduling", "sustainability", "batch analytics"],
+      "authors": [
+        { "given": "Olof", "family": "Kvist", "affiliation": "KTH Royal Institute of Technology", "country": "SE", "email": "okvist@example.org", "seq": 1 }
+      ],
+      "files": [
+        { "physical_basename": "draft-manuscript", "ext": ".docx", "display_name": "draft-manuscript.docx", "file_stage": 2, "content_kind": "docx",
+          "doc_title": "Energy-Proportional Scheduling for Batch Analytics (Draft)", "paragraphs": [
+            "Abstract: This work-in-progress explores carbon-aware scheduling of batch analytics jobs.",
+            "1. Introduction. Data-center electricity demand is increasingly scrutinised; shifting deferrable work toward low-carbon windows is a promising lever.",
+            "2. Approach (draft). We model jobs as deadline-constrained DAGs and align execution with forecast grid carbon intensity.",
+            "Note: this is an incomplete draft prepared for internal discussion."
+          ] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1155 >>
+stream
+BT
+/F1 11 Tf
+72 760 Td
+15 TL
+(Editorial: Toward Boringly Reliable Machine Learning Systems) Tj
+T* () Tj
+T* (Authors: Elena Markovic) Tj
+T* (Affiliations: University of Ljubljana) Tj
+T* (Correspondence: emarkovic@jist.example) Tj
+T* (Document: Editorial \(as submitted\)) Tj
+T* () Tj
+T* (Abstract) Tj
+T* (In this editorial we argue that the next gains in applied machine learning will come less) Tj
+T* (from novel models and more from boringly reliable systems engineering around them.) Tj
+T* () Tj
+T* (Keywords: editorial, machine learning, reliability) Tj
+T* () Tj
+T* (1. Introduction) Tj
+T* (This manuscript is part of a realistic but synthetic Open Journal Systems instance used for) Tj
+T* (non-production testing. The content is fictional; any resemblance to real studies is) Tj
+T* (coincidental.) Tj
+T* () Tj
+T* (2. Methods) Tj
+T* (The study design, materials, and analysis described here are illustrative placeholders that) Tj
+T* (mirror the structure of a genuine research article so that downstream tooling sees plausible) Tj
+T* (inputs.) Tj
+T* () Tj
+T* (References) Tj
+T* ([1] Markovic, E. \(2025\). Working notes. University of Ljubljana.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001448 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1518
+%%EOF

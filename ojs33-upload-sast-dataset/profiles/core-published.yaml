@@ -1,0 +1,14 @@
+profile: core-published
+description: >
+  Only the published submissions and their files (those assigned to an issue
+  and carrying a public PDF galley). A smaller, fully "live" subset useful when
+  you want a clean published catalogue without in-progress or draft material.
+selection: published_only
+includes:
+  - published submissions only (submission_status == published)
+excludes:
+  - submissions under review
+  - draft submissions
+notes: >
+  apply-profile.sh still copies the full files/ tree on disk; this profile
+  narrows the verify step to files whose submission is published.
