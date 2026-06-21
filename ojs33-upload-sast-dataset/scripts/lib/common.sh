@@ -3,7 +3,7 @@
 # Reads the lab environment contract from spesifikasi section 2.1.
 set -euo pipefail
 
-PKG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PKG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 log()  { printf '[%s] %s\n' "$(date -u +%H:%M:%S)" "$*"; }
 die()  { printf 'FATAL: %s\n' "$*" >&2; exit 1; }

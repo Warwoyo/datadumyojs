@@ -21,7 +21,7 @@ BK="$PKG_DIR/evidence/backup-$TS"
 mkdir -p "$BK"
 
 log "== Phase 0: backup current target state =="
-mysqldump -h "$DB_HOST" -u "$DB_USER" ${DB_PASS:+-p"$DB_PASS"} "$DB_NAME" > "$BK/database.sql" \
+mysqldump --no-tablespaces -h "$DB_HOST" -u "$DB_USER" ${DB_PASS:+-p"$DB_PASS"} "$DB_NAME" > "$BK/database.sql" \
   || die "db backup failed"
 tar -C "$FILES_DIR" -czf "$BK/files.tar.gz" . || die "files backup failed"
 cat > "$PKG_DIR/evidence/backup-manifest-$TS.json" <<JSON
